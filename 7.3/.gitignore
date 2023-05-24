@@ -1,4 +1,7 @@
-/node_modules/
+/jest/node_modules/
+/playwright/node_modules/
+/coverage
+/playwright/tests/user.js
 
 
 .vscode/*
@@ -11,7 +14,6 @@
 # Local History for Visual Studio Code
 .history/
 
-.user.js
 /test-results/
 /playwright-report/
 /playwright/.cache/

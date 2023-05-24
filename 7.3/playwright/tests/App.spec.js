@@ -25,6 +25,6 @@ test("Unsuccessful authorization", async ({ page }) => {
   await page.getByPlaceholder("Пароль").click();
   await page.getByPlaceholder("Пароль").fill("invalidPassword");
   await page.getByTestId("login-submit-btn").click();
-  await page.getByTestId("login-error-hint").textContent("Вы ввели неправильно логин или пароль");
+  await expect (page.getByTestId("login-error-hint")).toHaveText("Вы ввели неправильно логин или пароль");
 
 });
