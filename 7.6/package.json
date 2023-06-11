@@ -1,14 +1,19 @@
 {
-  "name": "cypress-test",
+  "name": "cypresstests",
   "version": "1.0.0",
-  "description": "first tests with Cypress",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:chrome": "cypress run --browser chrome",
+    "test:edge": "cypress run --browser edge",
+    "test:headed": "cypress run --headed",
+    "test:headless": "cypress run --headless"
   },
-  "author": "OM",
+
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^8.3.0"
+  "devDependencies": {
+    "cypress": "^12.14.0"
   }
 }
