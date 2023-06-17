@@ -1,4 +1,5 @@
-import scenarios from '../fixtures/profiles.json';
+import sucsessfulScenario from '../fixtures/sucsessprofile.json';
+import unsucsessfulScenarios from '../fixtures/unsucsessprofiles.json';
 
 describe('ticket sales page', () => {
 
@@ -7,7 +8,7 @@ describe('ticket sales page', () => {
     cy.get('.page-nav__day').should('have.length', 7)
   });
 
-  scenarios.forEach((scenario) => {
+  sucsessfulScenario.forEach((scenario) => {
     it(scenario.name, () => {
       scenario.data.forEach((data) => {
         cy.log('Переход на страницу авторизации')
@@ -31,6 +32,31 @@ describe('ticket sales page', () => {
       })
     })
   })
+
+  unsucsessfulScenarios.forEach((scenario) => {
+    it(scenario.name, () => {
+      scenario.data.forEach((data) => {
+        cy.log('Переход на страницу авторизации')
+        cy.visit(data.url)
+  
+        cy.log('Ввод данных')
+        cy.get('[placeholder="example@domain.xyz"]').click()
+        cy.get('[placeholder="example@domain.xyz"]')
+            .type(data.login)
+  
+        cy.get('[name="password"]').click()
+        cy.get('[name="password"]')
+            .type(data.password)
+  
+        cy.log('Клик по кнопке Авторизоваться')
+        cy.get('.login__button').click()
+          
+        cy.log('Проверка, что появилось сообщение об ошибке')
+        cy.contains('Ошибка авторизации!')
+
+      })
+    })
+  })
 })
 
 describe('booking', () => {
@@ -40,13 +66,9 @@ describe('booking', () => {
       cy.visit(admin.url)
 
       cy.log('Ввод корректных данных')
-        cy.get('[placeholder="example@domain.xyz"]').click()
-        cy.get('[placeholder="example@domain.xyz"]')
-            .type(admin.login)
+        cy.get('[placeholder="example@domain.xyz"]').type(admin.login)
 
-        cy.get('[name="password"]').click()
-        cy.get('[name="password"]')
-            .type(admin.password)
+        cy.get('[name="password"]').type(admin.password)
 
         cy.log('Клик по кнопке Авторизоваться')
         cy.get('.login__button').click()
