@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Unsucsessful autorization scenerio login",
+        "data": [
+            {
+            "url": "http://qamid.tmweb.ru/admin",    
+            "login": "qamid@qamid.com",
+            "password": "qamid"
+            }
+        ]
+    },
+  
+    {
+        "name": "Unsucsessful autorization scenerio password",
+        "data": [
+            {
+            "url": "http://qamid.tmweb.ru/admin",    
+            "login": "qamid@qamid.ru",
+            "password": "test"
+            }
+        ]
+    }     
+]

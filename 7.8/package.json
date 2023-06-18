@@ -1,0 +1,29 @@
+{
+  "name": "7.8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:ui:chrome": "cypress run --record --spec \"cypress/e2e/movies.cy.js\" --group ui --browser chrome",
+    "test:ui:edge": "cypress run --record --spec \"cypress/e2e/movies.cy.js\" --group ui --browser edge",
+    "test:ui:electron": "cypress run --record --spec \"cypress/e2e/movies.cy.js\" --group ui --browser electron",
+
+    "test:api:chrome": "cypress run --record --spec \"cypress/e2e/API.cy.js\" --group api--browser chrome",
+    "test:api:edge": "cypress run --record --spec \"cypress/e2e/API.cy.js\" --group api--browser edge",
+    "test:api:electron": "cypress run --record --spec \"cypress/e2e/API.cy.js\" --group api--browser electron",
+
+    "test:parallel:chrome:edge": "run-p -c test:ui:chrome test:api:edge",
+
+    "test:ui:chrome:folder": "cypress run --record --spec \"cypress/e2e/UItests.cy.js\" --group ui --browser chrome",
+    "test:api:chrome:folder": "cypress run --record --spec \"cypress/e2e/APItests.cy.js\" --group api --browser chrome",
+    
+    "test:parallel:folders:chrome": "run-p -c test:ui:chrome:folder test:api:chrome:folder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.14.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
